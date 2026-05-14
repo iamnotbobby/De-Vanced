@@ -7,16 +7,8 @@ package app.morphe.patches.soundcloud.ad
 import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.soundcloud.shared.FeatureConstructorFingerprint
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -25,21 +17,14 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith(AppCompatibilities.SOUNDCLOUD)
 
     execute {
-        // Enable a preset feature to disable audio ads by modifying the JSON server response.
-        FeatureConstructorFingerprint.method.apply {
-            val afterCheckNotNullIndex = 2
-            addInstructionsWithLabels(
-                afterCheckNotNullIndex,
-                """
-                    const-string v0, "no_audio_ads"
-                    invoke-virtual { p1, v0 }, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-                    move-result v0
-                    if-eqz v0, :skip
-                    const/4 p2, 0x1
-                """.trimIndent(),
-                ExternalLabel("skip", getInstruction(afterCheckNotNullIndex)),
-            )
-        }
+        // Force-enable the no_audio_ads feature flag by writing directly to Feature.enabled.
+        FeatureConstructorFingerprint.method.addInstructions(
+            2,
+            """
+                const/4 p2, 0x1
+                iput-boolean p2, p0, Lcom/soundcloud/android/configuration/plans/Feature;->enabled:Z
+            """.trimIndent()
+        )
 
         // Overwrite the JSON response from the server to a paid plan, which hides all ads in the app.
         UserConsumerPlanConstructorFingerprint.method.addInstructions(

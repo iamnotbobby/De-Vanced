@@ -1,4 +1,4 @@
-{
+﻿{
   "version": "1.0.4",
   "appNames": {
     "com.amazon.mShop.android.shopping": "Amazon Shopping",
@@ -615,7 +615,7 @@
       "dependencies": [],
       "compatiblePackages": {
         "com.soundcloud.android": [
-          "2025.05.27-release"
+          "2026.05.07-release"
         ]
       },
       "compatibility": [
@@ -626,7 +626,7 @@
           "appIconColor": 0,
           "targets": [
             {
-              "version": "2025.05.27-release",
+              "version": "2026.05.07-release",
               "experimental": false
             }
           ]
@@ -811,7 +811,7 @@
       "dependencies": [],
       "compatiblePackages": {
         "com.soundcloud.android": [
-          "2025.05.27-release"
+          "2026.05.07-release"
         ]
       },
       "compatibility": [
@@ -822,7 +822,7 @@
           "appIconColor": 0,
           "targets": [
             {
-              "version": "2025.05.27-release",
+              "version": "2026.05.07-release",
               "experimental": false
             }
           ]
@@ -1423,7 +1423,7 @@
       "dependencies": [],
       "compatiblePackages": {
         "com.soundcloud.android": [
-          "2025.05.27-release"
+          "2026.05.07-release"
         ]
       },
       "compatibility": [
@@ -1434,7 +1434,7 @@
           "appIconColor": 0,
           "targets": [
             {
-              "version": "2025.05.27-release",
+              "version": "2026.05.07-release",
               "experimental": false
             }
           ]
@@ -1776,7 +1776,7 @@
         {
           "key": "compressionQuality",
           "title": "Compression quality (percent)",
-          "description": "This is used as the JPEG quality setting (≤ 100).",
+          "description": "This is used as the JPEG quality setting (â‰¤ 100).",
           "required": false,
           "type": "kotlin.Int",
           "default": null,
@@ -1785,7 +1785,7 @@
         {
           "key": "maxDuration",
           "title": "Max duration (seconds)",
-          "description": "The maximum length (≤ 3600) of a video before it gets trimmed.",
+          "description": "The maximum length (â‰¤ 3600) of a video before it gets trimmed.",
           "required": false,
           "type": "kotlin.Long",
           "default": null,
@@ -1794,7 +1794,7 @@
         {
           "key": "maxSize",
           "title": "Max size (pixels)",
-          "description": "The image gets resized so that the smaller dimension (width/height) does not exceed this value (≤ 10000).",
+          "description": "The image gets resized so that the smaller dimension (width/height) does not exceed this value (â‰¤ 10000).",
           "required": false,
           "type": "kotlin.Int",
           "default": null,

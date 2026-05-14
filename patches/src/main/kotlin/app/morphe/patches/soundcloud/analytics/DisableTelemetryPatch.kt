@@ -16,7 +16,7 @@ val disableTelemetryPatch = bytecodePatch(
     compatibleWith(AppCompatibilities.SOUNDCLOUD)
 
     execute {
-        // Empty the "backend" argument to abort the initializer.
+        // Empty the string parameter so the backend check fails, aborting tracking API creation.
         CreateTrackingApiFingerprint.method.addInstruction(0, "const-string p1, \"\"")
     }
 }

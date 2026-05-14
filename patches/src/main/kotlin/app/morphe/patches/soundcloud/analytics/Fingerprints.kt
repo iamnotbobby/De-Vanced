@@ -5,14 +5,9 @@
 package app.morphe.patches.soundcloud.analytics
 
 import app.morphe.patcher.Fingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object CreateTrackingApiFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC),
-    returnType = "L",
-    custom = { methodDef, _ ->
-        methodDef.name == "create"
-    },
-    strings = listOf("backend", "boogaloo"),
+    definingClass = "Lcom/soundcloud/android/analytics/DefaultTrackingApiFactory;",
+    strings = listOf("boogaloo"),
 )
 
