@@ -1,5 +1,5 @@
-﻿{
-  "version": "1.0.4",
+{
+  "version": "1.0.5",
   "appNames": {
     "com.amazon.mShop.android.shopping": "Amazon Shopping",
     "com.amazon.mp3": "Amazon Music",
@@ -1469,6 +1469,32 @@
       "options": []
     },
     {
+      "name": "Hide banner ads",
+      "description": null,
+      "use": true,
+      "dependencies": [],
+      "compatiblePackages": {
+        "com.soundcloud.android": [
+          "2026.05.07-release"
+        ]
+      },
+      "compatibility": [
+        {
+          "name": "SoundCloud",
+          "packageName": "com.soundcloud.android",
+          "description": null,
+          "appIconColor": 0,
+          "targets": [
+            {
+              "version": "2026.05.07-release",
+              "experimental": false
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Hide distractions",
       "description": "Hides elements that are not essential.",
       "use": true,
@@ -1776,7 +1802,7 @@
         {
           "key": "compressionQuality",
           "title": "Compression quality (percent)",
-          "description": "This is used as the JPEG quality setting (â‰¤ 100).",
+          "description": "This is used as the JPEG quality setting (≤ 100).",
           "required": false,
           "type": "kotlin.Int",
           "default": null,
@@ -1785,7 +1811,7 @@
         {
           "key": "maxDuration",
           "title": "Max duration (seconds)",
-          "description": "The maximum length (â‰¤ 3600) of a video before it gets trimmed.",
+          "description": "The maximum length (≤ 3600) of a video before it gets trimmed.",
           "required": false,
           "type": "kotlin.Long",
           "default": null,
@@ -1794,7 +1820,7 @@
         {
           "key": "maxSize",
           "title": "Max size (pixels)",
-          "description": "The image gets resized so that the smaller dimension (width/height) does not exceed this value (â‰¤ 10000).",
+          "description": "The image gets resized so that the smaller dimension (width/height) does not exceed this value (≤ 10000).",
           "required": false,
           "type": "kotlin.Int",
           "default": null,

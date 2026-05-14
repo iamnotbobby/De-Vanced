@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/iamnotbobby/De-Vanced/compare/v1.0.4...v1.0.5) (2026-05-14)
+
+
+### Bug Fixes
+
+* **soundcloud:** update patches for 2026.05.07-release ([7913a3f](https://github.com/iamnotbobby/De-Vanced/commit/7913a3f6064e8da20f754d2a7c84da4a3cf21224))
+
 ## [1.0.4](https://github.com/RookieEnough/De-Vanced/compare/v1.0.3...v1.0.4) (2026-05-13)
 
 
