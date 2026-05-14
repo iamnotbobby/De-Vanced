@@ -5,16 +5,13 @@
 package app.morphe.patches.soundcloud.offlinesync
 
 import app.morphe.patches.shared.compat.AppCompatibilities
-import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
-import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.soundcloud.shared.FeatureConstructorFingerprint
 import app.morphe.util.getReference
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -56,17 +53,6 @@ val enableOfflineSync = bytecodePatch(
             )
         }
 
-        // Mock missing headers to prevent crashes.
-        DownloadOperationsHeaderVerificationFingerprint.method.apply {
-            // The first three null checks need to be patched.
-            instructions.asSequence().filter {
-                it.opcode == Opcode.IF_EQZ
-            }.take(3).toList().map { it.location.index }.asReversed().forEach { nullCheckIndex ->
-                val headerStringRegister = getInstruction<OneRegisterInstruction>(nullCheckIndex).registerA
-
-                addInstruction(nullCheckIndex, "const-string v$headerStringRegister, \"\"")
-            }
-        }
     }
 }
 

@@ -4,10 +4,10 @@ patches {
     about {
         name = "De-Vanced Patches"
         description = "ReVanced patches, ported for Morphe."
-        source = "https://github.com/RookieEnough/De-ReVanced"
+        source = "https://github.com/iamnotbobby/De-Vanced"
         author = "De-Vanced"
         contact = "na"
-        website = "https://github.com/RookieEnough/De-ReVanced"
+        website = "https://github.com/iamnotbobby/De-Vanced"
         license = "GNU General Public License v3.0, with additional GPL section 7 requirements"
     }
 }

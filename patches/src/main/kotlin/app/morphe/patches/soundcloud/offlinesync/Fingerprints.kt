@@ -20,16 +20,4 @@ internal object DownloadOperationsURLBuilderFingerprint : Fingerprint(
     ),
 )
 
-internal object DownloadOperationsHeaderVerificationFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "V",
-    parameters = listOf("L", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.CONST_STRING,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST_STRING,
-    ),
-    strings = listOf("X-SC-Mime-Type", "X-SC-Preset", "X-SC-Quality"),
-)
 

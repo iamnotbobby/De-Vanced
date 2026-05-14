@@ -10,9 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object InterceptFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC),
-    returnType = "L",
-    parameters = listOf("L"),
+    definingClass = "Lcom/soundcloud/android/libs/api/user/interceptor/ApiUserPlanInterceptor;",
     filters = OpcodesFilter.opcodesToFilters(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,

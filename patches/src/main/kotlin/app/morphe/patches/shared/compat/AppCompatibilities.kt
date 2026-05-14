@@ -192,7 +192,7 @@ internal object AppCompatibilities {
         name = "SoundCloud",
         packageName = "com.soundcloud.android",
         appIconColor = 0x000000,
-        targets = listOf(AppTarget("2025.05.27-release")),
+        targets = listOf(AppTarget("2026.05.07-release")),
     )
 
     val STRAVA = Compatibility(
